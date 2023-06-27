@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta property="og:title" content="Basic Web Presentation" />
+    <meta
+      property="og:description"
+      content="A one file presentation template."
+    />
+    <title>ASCII ART</title>
+    <!--  shoutout to the creator of this template, I forgot who you were -->
+    <style>
+      html,
+      body {
+        margin: 0;
+        padding: 0;
+      }
+
+      body {
+        font-family: system-ui, caption, sans-serif;
+      }
+
+      main {
+        height: 100vh;
+        width: 100vw;
+      }
+      h2 {
+        font-size: 2.4em;
+      }
+      li {
+        padding-bottom: 1em;
+      }
+      section {
+        position: absolute;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        background: white;
+        box-sizing: border-box;
+
+        display: flex;
+        flex-direction: column;
+        flex-wrap: nowrap;
+        justify-content: space-around;
+        align-content: center;
+        align-items: center;
+      }
+
+      section.hidden {
+        display: none;
+      }
+
+      section div.text {
+        margin: 20px;
+        max-width: 700px;
+      }
+
+      section div.visual {
+        margin: 20px;
+        max-width: 650px;
+        max-height: 60%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+      }
+
+      img {
+        align-self: center;
+        align-self: center;
+max-height: 90%;
+height: auto;
+max-width: 90%;
+min-width: auto;
+min-height: auto;
+      }
+    </style>
+  </head>
+
+  <body>
+    <script>
+      window.onload = () => {
+        let slides = Array.from(document.querySelectorAll('section'));
+
+        for (i = 1; i < slides.length; i++) {
+          let slide = slides[i];
+          hideSlide(slide);
+        }
+
+        document.addEventListener('keydown', () => {
+          if (event.keyCode === 39) moveForward();
+          else if (event.keyCode === 37) moveBackward();
+          else if (event.keyCode === 32) moveForward();
+        });
+
+        function moveForward() {
+          let currentSlide = slides.find(
+            (slide) => !slide.classList.contains('hidden'),
+          );
+          let nextSlide = slides[slides.indexOf(currentSlide) + 1];
+          if (nextSlide) {
+            console.log('moving forward');
+            hideSlide(currentSlide);
+            showSlide(nextSlide);
+          } else {
+            console.log('reached end');
+          }
+        }
+
+        function moveBackward() {
+          let currentSlide = slides.find(
+            (slide) => !slide.classList.contains('hidden'),
+          );
+          let previousSlide = slides[slides.indexOf(currentSlide) - 1];
+          if (previousSlide) {
+            console.log('moving backward');
+            hideSlide(currentSlide);
+            showSlide(previousSlide);
+          } else {
+            console.log('reached start');
+          }
+        }
+
+        function showSlide(slide) {
+          if (slide.classList.contains('hidden')) {
+            slide.classList.remove('hidden');
+          }
+        }
+
+        function hideSlide(slide) {
+          if (!slide.classList.contains('hidden')) {
+            slide.classList.add('hidden');
+          }
+        }
+      };
+    </script>
+    <main>
+      <section>
+        <img
+          
+          src="https://d2w9rnfcy7mm78.cloudfront.net/9747820/original_91c5b41cfd2c66b5db7315959db73135.png?1606958345?bc=0"
+        />
+        <figcaption>https://html.energy/</figcaption>
+      </section>
+
+      <section>
+        <div class="text">
+          <h2 style="text-align: center">ASCII ART</h2>
+          <h3 style="text-align: center">pronunciation: /ˈæskiː/ ASS-kee</h3>
+          <h2>
+            Textual based art made with ASCII characters.<br /><br />
+            Also loosely used to refer to general computer textual art<br /><br />
+            ASCII stands for American Standard Code for Information Interchange.
+          </h2>
+        </div>
+      </section>
+
+      <!-- <section style="background: black;"> !-->
+      <section>
+        <div class="text">
+          <h2>
+            <ul>
+              <li>A character coding standard for electronic communication.</li>
+              <li>1st edition was published in 1963</li>
+              <li>128 characters total, but only 95 printable</li>
+              <li>Made for the english language so no accents or loanwords</li>
+            </ul>
+          </h2>
+          <img
+            
+            src="https://upload.wikimedia.org/wikipedia/commons/9/9f/ASCII1963-infobox-paths.svg"
+            alt=""
+          />
+        </div>
+      </section>
+      <section>
+        <img
+          
+          src="https://upload.wikimedia.org/wikipedia/commons/c/cf/USASCII_code_chart.png"
+          alt=""
+        />
+      </section>
+
+      <section>
+        <div class="text">
+          <h2>
+            <ul>
+              <li>
+                ASCII standard is a bit deprecated today and replaced by Unicode
+              </li>
+              <li>Unicode, current unifying standard supporting 161 scripts</li>
+              <li>Emoji included ⭐⭐⭐</li>
+            </ul>
+          </h2>
+        </div>
+      </section>
+      <section>
+        <img src="img/milestone.png" alt="">
+      </section>
+      <section>
+        <div class="text">
+          <h2 style="text-align: center">
+           WHY
+          </h2>
+          <h2 style="text-align: center">
+            - performant<br />
+            - very low tech <br />
+            - create interesting stuff with the restrictions <br />
+            - creative coding
+          </h2>
+        </div>
+      </section>
+
+      <section>
+        <div class="text">
+          <h2 style="text-align: center">
+            A SHORT INCOMPLETE ASCII ART HISTORY
+          </h2>
+          <h2 style="text-align: center">
+            - concrete poetry <br />- typewriter art <br />
+            - fax art <br />
+          </h2>
+        </div>
+      </section>
+      <section>
+    <img src="https://upload.wikimedia.org/wikipedia/commons/f/f3/GeorgeHerbertEasterWingsPatternPoem1633.jpg" alt="">
+        <p class="text" style="padding: 10px; text-align: center">
+          George Herbert's "Easter Wings" (1633)
+        </p>
+      </section>
+      <section>
+        <img
+   
+          src="https://the-public-domain-review.imgix.net/collections/apollinaire-s-calligrammes-1918/calligrammespo00apol_0050.jpg?fit=max&w=2400"
+        />
+        <p class="text" style="padding: 10px; text-align: center">
+          Apollinaire’s Calligrammes (1918) 
+        </p>
+      </section>
+      <section>
+        <img
+   
+          src="img/starbuck-christmas.png"
+        />
+        <p class="text" style="padding: 10px; text-align: center">
+          Sonnet in the Shape of a Potted Christmas Tree
+By George Starbuck
+
+        </p>
+      </section>
+   
+      <!-- ascii modern? -->
+      <section>
+        <img
+   
+          src="https://github.com/doctorfree/Asciiville/wiki/pics/computer-nude-artists.png"
+        />
+        <p class="text" style="padding: 10px; text-align: center">
+          Ken Knowlton and Leon Harmon <br>
+          Kenneth Knowlton, around 1966, who was working for Bell Labs 
+        </p>
+      </section>
+      <section>
+        <img
+   
+          src="https://buffaloakg.org/sites/default/files/styles/fixed_height_medium/public/artwork/P2014_002_o2.jpg?itok=uU8t0Uyl"
+        />
+        <p class="text" style="padding: 10px; text-align: center">
+          Computer Nude (Studies in Perception I), 1967 <br>
+
+
+Leon Harmon: American, 1922-1982
+
+Ken Knowlton: American, 1931-2022
+
+          
+        </p>
+      </section>
+
+
+
+
+ <!-- torrent descriptions-->
+ <section>
+  <div class="text">
+    <h2 style="text-align: center">
+      CREATIVE CODING
+    </h2>
+
+  </div>
+</section>
+
+<section>
+  <img
+
+    src="https://d2w9rnfcy7mm78.cloudfront.net/8166059/original_2c3a90acc6b83b4bf660e1f6d46e18b4.png?1596026544?bc=0"
+  />
+  
+
+</section>
+<section>
+  <img
+
+    src="https://d2w9rnfcy7mm78.cloudfront.net/8169246/original_ae8689192adacf94d58fe8ecd13d476e.png?1596047056?bc=0"
+  />
+
+</section>
+
+
+
+
+      <!--- ascii porn-->
+      <section>
+        <div class="text">
+          <h2 style="text-align: center">
+          ASCII PORN
+          </h2>
+          <h3>it's the internet, ofcourse what did you expect</h3>
+      
+        </div>
+      </section>
+      <section>
+    <img src="http://media.rhizome.org/blog/8971/Spying-at-the-Wall-5-.png" alt="">
+      </section>
+      <!--- creative coding-->
+      <section>
+        <div class="text">
+          <h2 style="text-align: center">
+            CREATIVE CODING
+          </h2>
+      
+        </div>
+      </section>
+
+      <section>
+      <iframe style="width:800%;height:60%" src="https://play.ertdfgcvb.xyz/#/src/basics/coordinates_xy" frameborder="0"></iframe>
+        <p class="text" style="padding: 10px; text-align: center">
+          https://ertdfgcvb.xyz/
+        </p>
+      </section>
+      <section>
+      <iframe style="width:100%;height:100%" src="https://gateway.fxhash2.xyz/ipfs/QmXY7eGw9bwMm1ARi74bcWs8GKp6pANr1mvY16j9H5J8wa/?fxhash=ooGnvwM5KDAguz2A21Shy6SStDRFR7wCjw2c4ibERL7TNxpAtcA" frameborder="0"></iframe>
+        <p class="text" style="padding: 10px; text-align: center">
+          https://ertdfgcvb.xyz/
+        </p>
+      </section>
+      <section>
+        <img
+   
+          src="https://d2w9rnfcy7mm78.cloudfront.net/1420440/original_1cbf60b289f44ec9a6292884109c876c.gif?1510542510?bc=1"
+        />
+        <p class="text" style="padding: 10px; text-align: center">
+          https://wttr.in/
+
+        </p>
+      </section>
+
+      <!-- -->
+
+      <section>
+        <h2 style="text-align: center">
+         VIEW-SOURCE     </h2>
+      </section>
+      <section>
+        <h2 style="text-align: center">
+         BONUS: FUNKY-GPT         </h2>
+      </section>
+      <section>
+        <img src="img/bonus1.png" />
+        <p class="text" style="padding: 10px; text-align: center">
+         The prompt was to draw Tom Cruise</p>
+      </section>
+   
+      <section>
+        <img src="img/bonus4.png" />
+      </section>   
+      <section>
+        <img src="img/bonus2.png" />
+      </section>  
+      <section>
+        <img src="img/bonus3.png" />
+      </section>
+    
+   
+
+      <section>
+        <div style="display: block">
+        
+          <pre style='text-align:center' type="code">
+            ༼ つ ◕_◕ ༽つ   ༼ つ ◕_◕ ༽つ   ༼ つ ◕_◕ ༽つ
+          </pre>
+    
+          <ul>
+            <h2 style="text-align: center">
+WHAT YOU NEED            </h2>
+            <h2>
+            <li>a notepad (analog or digital), text or code editor etc</li>
+            <li>a monospace font</li>
+            <li>time on your hands</li>
+            <li>or cheat and use a generator</li>
+            <li>
+              tip: using < pre > < /pre > tags will allow you to write in the
+              html file
+            </li>
+          </ul>
+        </h2>
+        </div>
+      </section>
+
+      <section>
+        <h2 style="text-align: center">
+          I hope to see some interesting creations in your source code!
+        </h2>
+        <pre>
+                                                                                
+          ###############################                  
+          ##############################################                  
+          ##############################################                  
+          ##############,,,,,,,,,###,,,,,,,,,#################            
+       ############,,,###,,,,,,,,###,,,,,,,,.##,,,,###########            
+       ########,,,,,,,.##,,,,,,,,###,,,,,,,,###,,,,,,,########            
+(((((#########.,,,,,,,,###,,,,,,,*##,,,,,,,,##,,,,,,,,,##############     
+###########,,###,,,,,,,,##,,,,,,,,##,,,,,,,##,,,,,,,,,###,###########     
+#########(,,,,###,,,,,,,,##,,,,,,,##,,,,,,.##,,,,,,,###,,,,,#########     
+########,,,,,,,.##,,,,,,,##,,,,,,,#,,,,,,,##,,,,,,,###,,,,,,,########     
+########,,,,,,,,,##,,,,,,,##,,,,,,#,,,,,,,#,,,,,,,##,,,,,,,,,########     
+##########,,,,,,,,##,,,,,,,#,,,,,,#,,,,,,#,,,,,,,##,,,,,,,,##########     
+######,,,###,,,,,,,,#*,,,,,,#,,,,,#,,,,,.#,,,,,,#,,,,,,,,###,,,######     
+######,,,,,,##,,,,,,,##,,,,,#,,,,,#,,,,,#,,,,,,#,,,,,,,##,,,,,,######     
+######,,,,,,,,##,,,,,,,#,,,,,#,,,,#,,,,,,,,,,#/,,,,,,##,,,,,,,,######     
+######,,,,,,,,,,,#,,,,,,#,,,,,,,,,#,,,,#,,,,#,,,,,,#/,,,,,,,,,,######     
+##########,,,,,,,,,#,,,,,,,,,,#,,,*,,,.,,,,#,,,,,#,,,,,,,,,,#########     
+#############,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,#,,,,,,,,#############     
+    ############,,,,,,,,.,,,,,,,,,,,,,,,,,,,,,,,,,,,,############         
+    #############,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,#############         
+          #######,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,#############         
+          ########,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,/#############         
+          ########,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,##############         
+          ########################,(#############################         
+            *############################################                 
+                         ################                
+          </pre
+        >
+      </section>
+      <section>
+        <h2>LINKS</h2>
+        <ul>
+          <li>https://web.archive.org/web/20071116040106/http://www.kersbergen.com/flump/howto.html</li>
+<li>https://www.incredibleart.org/links/ascii.html</li>   
+
+<li>https://ozh.github.io/ascii-tables/</li>
+<li>https://www.ascii-art-generator.org/</li>
+<li>https://www.npmjs.com/package/cool-ascii-faces</li>
+<li>https://rhizome.org/editorial/2013/apr/30/emoticon-emoji-text-ii-ascii/</li>
+<li>https://www.theatlantic.com/technology/archive/2014/01/the-lost-ancestors-of-ascii-art/283445/</li>
+</ul>
+      </section>
+    </main>
+  </body>
+</html>
